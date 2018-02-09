@@ -11,7 +11,8 @@
     $routeProvider
       .when('/main', {
         templateUrl: 'static/main/main.html',
-        controller: 'MainViewController'
+        controller: 'MainViewController',
+        controllerAs: "vmMainView"
       });
   }
 })()

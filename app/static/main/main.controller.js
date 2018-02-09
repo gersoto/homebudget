@@ -10,11 +10,21 @@
     /* @ngInject */
     function MainViewController() {
         var vm = this;
+        vm.parseContent = parseContent;
+
 
         activate();
 
-        function activate() {
 
+        /////
+        /////
+
+        function activate() {
+          vm.content = "---";
+        }
+
+        function parseContent(content) {
+          vm.content = content;
         }
     }
 })();
