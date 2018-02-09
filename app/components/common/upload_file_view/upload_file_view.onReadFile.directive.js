@@ -17,6 +17,10 @@
 
       return directive;
 
+      ////////////////////////////////
+      ////////////////////////////////
+
+
       function linkFunc(scope, element, attrs) {
         var fn = $parse(attrs.uflOnReadFile);
 
@@ -24,13 +28,13 @@
           var reader = new FileReader();
 
           reader.onload = function(onLoadEvent) {
+            if ( !scope.uflOnReadFile || !(typeof scope.uflOnReadFile === "function") ) { return; }
             scope.$apply(function() {
               scope.uflOnReadFile({
                 $fileContent: onLoadEvent.target.result
               });
             });
           };
-
           reader.readAsText((onChangeEvent.srcElement || onChangeEvent.target).files[0]);
         });
       }

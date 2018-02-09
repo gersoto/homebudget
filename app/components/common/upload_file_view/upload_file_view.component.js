@@ -11,7 +11,7 @@
       templateUrl: 'components/common/upload_file_view/upload_file_view.template.html',
       controller: Controller,
       bindings: {
-        showContent : '<'
+        uflOnRead : '&'
       }
     };
 
@@ -21,18 +21,16 @@
   Controller.$inject = [];
 
   /* @ngInject */
-  function Controller(dependencies) {
+  function Controller() {
     var self = this;
     self.$onInit = function() {
-      self.fileProcessed = "File not processed already";
-      self.showContent = self.showContent? self.showContent:true;
-    };
-    self.onReadFile = function(file) {
-      self.fileProcessed = "file caqtched";
-    };
-    self.showContent = function($fileContent) {
-      self.fileProcessed = $fileContent;
+
     };
 
+    self.uflOnReadFile = function(filedata) {
+      if ( self.uflOnRead && typeof self.uflOnRead === "function" ) {
+        self.uflOnRead({ filedata : filedata});
+      }
+    };
   }
 })();
