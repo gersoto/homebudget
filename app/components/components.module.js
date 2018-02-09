@@ -5,6 +5,7 @@
         .module('homebudget.components', [
             'homebudget.components.homebudget',
             'homebudget.components.homebudgetHead',
-            'homebudget.components.homebudgetBody'
+            'homebudget.components.homebudgetBody',
+            'homebudget.components.common'
         ]);
 })();
